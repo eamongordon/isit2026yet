@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is it 2026 yet?</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <div id="answer" class="text-center">
+        <div id="answer-text" class="text-9xl md:text-[12rem] font-black">NO</div>
+    </div>
+
+    <script>
+        function checkYear() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            
+            if (currentYear >= 2026) {
+                // YES - white background, black text
+                document.body.className = 'min-h-screen flex items-center justify-center bg-white text-black';
+                document.getElementById('answer-text').textContent = 'YES 🎉';
+            } else {
+                // NO - black background, white text
+                document.body.className = 'min-h-screen flex items-center justify-center bg-black text-white';
+                document.getElementById('answer-text').textContent = 'NO';
+            }
+        }
+
+        checkYear();
+        // Check every second in case the year changes while the page is open
+        setInterval(checkYear, 1000);
+    </script>
+</body>
+</html>
